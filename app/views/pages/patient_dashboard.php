@@ -1,16 +1,66 @@
-<?php if(!session_id()) session_start(); ?>
+<?php if(!session_id()) session_start();
+$user = $_SESSION['user'] ?? null;
+if (!$user || $user['role'] !== 'patient') {
+    header('Location: ?r=auth/login');
+    exit;
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Patient Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - MEDILINK</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/patient_dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0080ff;
+            text-decoration: none;
+            margin-right: 2rem;
+        }
+        .logo svg {
+            margin-right: 0.5rem;
+        }
+        .icon-button {
+            color: #333;
+            margin-left: 1rem;
+        }
+        .user-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-left: 1rem;
+        }
+        .user-role {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .logout {
+            margin-left: 1rem;
+        }
+    </style>
 </head>
 <body>
+<?php include __DIR__ . '/../partials/header.php'; ?>
 <div class="container">
-    <header class="header"><h2>Doctor Dashboard</h2><div><a href='?r=auth/logout'>Logout</a></div></header>
     <header class="welcome-banner">
         <h1>Welcome back, John Smith!</h1>
         <p>Manage your appointments, prescriptions, and health records.</p>

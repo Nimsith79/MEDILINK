@@ -6,19 +6,19 @@ class AuthController {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'] ?? '';
             $password = $_POST['password'] ?? '';
-            // Very simple demo auth: username 'admin' -> role admin, 'doctor', 'patient'
-            if($username === 'admin') {
-                $_SESSION['user'] = ['username'=>'admin','role'=>'admin'];
-                header('Location: ?r=admin/dashboard'); exit;
-            } elseif($username === 'doctor') {
-                $_SESSION['user'] = ['username'=>'doctor','role'=>'doctor'];
-                header('Location: ?r=doctor/dashboard'); exit;
-            } elseif($username === 'patient') {
-                $_SESSION['user'] = ['username'=>'patient','role'=>'patient'];
-                header('Location: ?r=patient/dashboard'); exit;
+            $role = $_POST['role'] ?? '';
+
+            // Very simple demo auth: username should match the role
+            if($username === $role) {
+                $_SESSION['user'] = [
+                    'username' => $username,
+                    'role' => $role
+                ];
+                header('Location: ?r=' . $role . '/dashboard');
+                exit;
             } else {
-                $error = 'Invalid credentials. Try admin / doctor / patient as username.';
-                view('auth/login', ['error'=>$error]);
+                $error = 'Invalid credentials. Try admin / doctor / patient as username and select the corresponding role.';
+                view('auth/login', ['error' => $error]);
                 return;
             }
         }

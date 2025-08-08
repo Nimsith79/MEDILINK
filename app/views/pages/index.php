@@ -4,13 +4,15 @@
 <link rel="stylesheet" href="/assets/css/style.css"></head>
 <body>
 <div class="container">
-  <header class="header">
-    <h2>Tele Doc Flow</h2>
-    <nav class="nav">
-      <a href="?r=home/index">Home</a>
-      <a href="?r=auth/login">Login</a>
-    </nav>
-  </header>
+  <?php 
+$pageTitle = 'Home - TeleDoc Flow';
+include __DIR__ . '/../partials/header.php';
+?>
+
+  <div class="welcome-section">
+    <h2>Welcome to TeleDoc Flow</h2>
+    <p>Your virtual consultation platform for seamless healthcare.</p>
+  </div>
 
   <div style="display:flex;gap:20px;flex-wrap:wrap">
     <div class="card" style="flex:1;min-width:240px">
@@ -24,6 +26,7 @@
     </div>
   </div>
 
+  <?php include __DIR__ . '/../partials/footer.php'; ?>
   <div class="footer">Converted to PHP MVC — demo content.</div>
 </div>
 </body></html>
