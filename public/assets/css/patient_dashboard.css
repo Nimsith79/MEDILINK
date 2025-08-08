@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.welcome-banner {
+    background: linear-gradient(to right, #0080ff, #00ff80);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.welcome-banner h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.welcome-banner p {
+    margin: 10px 0 0;
+    font-size: 16px;
+}
+
+.dashboard-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card i {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.stat-card h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.stat-card .stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0 0;
+}
+
+.dashboard-nav {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.dashboard-nav a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    flex: 1;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.dashboard-nav a.active {
+    background-color: #f0f2f5;
+    font-weight: bold;
+}
+
+.dashboard-content {
+    display: flex;
+    gap: 20px;
+}
+
+.appointments-section, .medications-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+}
+
+.appointments-section h2, .medications-section h2 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.appointment-card, .medication-card {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.appointment-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appointment-info h3, .medication-card h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.appointment-info p, .medication-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.appointment-actions {
+    display: flex;
+    align-items: center;
+}
+
+.appointment-status {
+    background-color: #e6f3ff;
+    color: #0080ff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.join-btn, .book-appointment-btn, .view-all-btn {
+    background-color: #0080ff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.book-appointment-btn, .view-all-btn {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.medication-date {
+    color: #999;
+    font-size: 12px;
+}
+
+.medication-details {
+    font-weight: bold;
+}
+
+.medication-prescriber {
+    font-style: italic;
+}

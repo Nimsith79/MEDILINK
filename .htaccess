@@ -1,0 +1,6 @@
+# Simple rewrite to route all requests to public/index.php
+RewriteEngine On
+RewriteRule ^$ public/ [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php [QSA,L]
